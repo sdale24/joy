@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joy! ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Hidden Radio Buttons para sa 7 Slides + Final Reveal (Pure CSS Logic) -->
+  <input type="radio" name="story" id="s1" checked>
+  <input type="radio" name="story" id="s2">
+  <input type="radio" name="story" id="s3">
+  <input type="radio" name="story" id="s4">
+  <input type="radio" name="story" id="s5">
+  <input type="radio" name="story" id="s6">
+  <input type="radio" name="story" id="s7">
+  <input type="radio" name="story" id="reveal">
+
+  <!-- ================= 7 INTRO SLIDES (WALANG SLIDE COUNT) ================= -->
+  <div class="slides-wrapper">
+
+    <!-- SLIDE 1 -->
+    <div class="slide slide-1">
+      <div class="slide-emoji">👀</div>
+      <h2>Huy, sandali lang...</h2>
+      <p>May sasabihin ako sa'yo. Pindutin mo muna 'yung button sa baba.</p>
+      <label for="s2" class="next-btn">Next ➔</label>
+    </div>
+
+    <!-- SLIDE 2 -->
+    <div class="slide slide-2">
+      <div class="slide-emoji">😏</div>
+      <h2>Ops, isa pa...</h2>
+      <p>Akala mo nandito na agad? Hindi pa, pindot ulit.</p>
+      <label for="s3" class="next-btn">Next ➔</label>
+    </div>
+
+    <!-- SLIDE 3 -->
+    <div class="slide slide-3">
+      <div class="slide-emoji">🙄</div>
+      <h2>Naiinis ka na ba?</h2>
+      <p>Huwag ka muna sumimangot, cute ka pa naman kapag naaasar.</p>
+      <label for="s4" class="next-btn">Next ➔</label>
+    </div>
+
+    <!-- SLIDE 4 -->
+    <div class="slide slide-4">
+      <div class="slide-emoji">🤔</div>
+      <h2>Sigurado ka ba?</h2>
+      <p> naiinis ka na ba diyan ha malapit na haha.</p>
+      <label for="s5" class="next-btn">Next ➔</label>
+    </div>
+
+    <!-- SLIDE 5 -->
+    <div class="slide slide-5">
+      <div class="slide-emoji">🤭</div>
+      <h2>Konti na lang...</h2>
+      <p>Promise malapit na talaga... o baka hindi pa? Pindutin mo na lang.</p>
+      <label for="s6" class="next-btn">Next ➔</label>
+    </div>
+
+    <!-- SLIDE 6 -->
+    <div class="slide slide-6">
+      <div class="slide-emoji">🥺</div>
+      <h2>Last na 'to, pramis!</h2>
+      <p>Charot, isa pa pala. Huwag mo ibabato phone mo ha! haha</p>
+      <label for="s7" class="next-btn">Next ➔</label>
+    </div>
+
+    <!-- SLIDE 7 -->
+    <div class="slide slide-7">
+      <div class="slide-emoji">💖</div>
+      <h2>Okay, ito na talaga!</h2>
+      <p>Salamat sa pasensya mo, joy! Ready ka na ba makita?</p>
+      <label for="reveal" class="next-btn">Open mo! 💌</label>
+    </div>
+
+  </div>
+
+  <!-- ================= FLOATING HEARTS POP-UP ================= -->
+  <div class="hearts-container">
+    <span class="heart" style="left: 5%; animation-duration: 6s; animation-delay: 0s;">❤️</span>
+    <span class="heart" style="left: 15%; animation-duration: 8s; animation-delay: 1s;">💖</span>
+    <span class="heart" style="left: 25%; animation-duration: 7s; animation-delay: 2.5s;">💕</span>
+    <span class="heart" style="left: 35%; animation-duration: 9s; animation-delay: 0.5s;">💗</span>
+    <span class="heart" style="left: 48%; animation-duration: 6.5s; animation-delay: 3s;">❤️</span>
+    <span class="heart" style="left: 60%; animation-duration: 8.5s; animation-delay: 1.5s;">💓</span>
+    <span class="heart" style="left: 72%; animation-duration: 7.5s; animation-delay: 0.2s;">💖</span>
+    <span class="heart" style="left: 82%; animation-duration: 9.5s; animation-delay: 2s;">💞</span>
+    <span class="heart" style="left: 92%; animation-duration: 6.8s; animation-delay: 1.2s;">❤️</span>
+  </div>
+
+  <!-- ================= MAIN SURPRISE CONTENT ================= -->
+  <div class="main-content">
+    
+    <header class="header">
+      <h1>HI Joy!!</h1>
+      <p>para sayo lahat yan HAHAHA.</p>
+    </header>
+
+    <!-- MUSIC PLAYER (Palitan ang 'music.mp3' ng filename ng kanta niyo) -->
+    <div class="music-box">
+      <div class="music-label">🎵 play mo song </div>
+      <audio controls autoplay loop>
+        <source src="joyy.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <!-- INTERACTIVE 3D FLIP CARD (IMAGE SA HARAP) -->
+    <div class="flip-section">
+      <input type="checkbox" id="flip-toggle">
+      <label for="flip-toggle" class="flip-card">
+        <div class="flip-card-inner">
+          
+          <!-- HARAP NG CARD (Palitan ang 'card-front.jpg' ng filename ng picture niyo) -->
+          <div class="flip-card-front">
+            <img src="love.jpg" alt="Our Photo" class="front-img">
+            <div class="flip-badge">👆 Flip Me</div>
+          </div>
+
+          <!-- LIKOD NG CARD (PALITAN ANG MESSAGE DITO) -->
+          <div class="flip-card-back">
+            <h3>Hi joy! ❤️</h3>
+            <p>
+              Sorry kung pinag-next-next pa kita nang matagal haha! alam mo nung time na sobrang stress ko sa capstone andyan ka para pakalmahin ako kaya thank you so much and I apolpgize for all my fault and I dont know how to motivate you right know andyan naman yung plushie baby mo hug mo lang yon if malungkot ka.. ayon lang masaya ako at nakausap kita ulit. best memories with you yung nakilala kita wala pa ako denelete at ayoko kasi nasasaktan ako eh pero ayon lang haha ganda mo talaga kainis ka haha. stay healthy, be happy, and don't forget to take care of yourself. I want too see you happy and success, I will support you from here. I'll be the greatest fan of you life.
+            </p>
+            <div class="signature">- Mochiiii!</div>
+          </div>
+
+        </div>
+      </label>
+    </div>
+
+    <!-- VIDEO SECTION (Palitan ang 'video.mp4' ng filename ng video niyo) -->
+    <div class="video-section">
+      <h2>🎬 Cute mo here!</h2>
+      <div class="video-wrapper">
+        <video controls playsinline>
+          <source src="joy.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

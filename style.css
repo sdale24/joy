@@ -1,0 +1,377 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ffe6eb 0%, #ffc2d1 50%, #ffb3c6 100%);
+  min-height: 100vh;
+  color: #4a1525;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Itago ang lahat ng radio buttons at checkbox */
+input[type="radio"],
+input[type="checkbox"] {
+  display: none;
+}
+
+/* ================= SLIDES CONTAINER ================= */
+.slides-wrapper {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 20;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.slide {
+  display: none;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  max-width: 420px;
+  width: 100%;
+  padding: 40px 30px;
+  border-radius: 28px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(214, 51, 108, 0.2);
+  border: 2px solid #fff;
+  animation: popIn 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+  0% { opacity: 0; transform: scale(0.85) translateY(15px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.slide-emoji {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+  display: inline-block;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.slide h2 {
+  font-size: 1.5rem;
+  color: #c9184a;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.slide p {
+  font-size: 1rem;
+  color: #590d22;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.next-btn {
+  display: inline-block;
+  background: linear-gradient(45deg, #ff4d6d, #c9184a);
+  color: #fff;
+  padding: 13px 34px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(201, 24, 74, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  user-select: none;
+}
+
+.next-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(201, 24, 74, 0.45);
+}
+
+.next-btn:active {
+  transform: scale(0.96);
+}
+
+/* Pure CSS Logic para lumipat sa bawat slide */
+#s1:checked ~ .slides-wrapper .slide-1,
+#s2:checked ~ .slides-wrapper .slide-2,
+#s3:checked ~ .slides-wrapper .slide-3,
+#s4:checked ~ .slides-wrapper .slide-4,
+#s5:checked ~ .slides-wrapper .slide-5,
+#s6:checked ~ .slides-wrapper .slide-6,
+#s7:checked ~ .slides-wrapper .slide-7 {
+  display: block;
+}
+
+/* Kapag natapos ang Slide 7 at pinindot ang final button */
+#reveal:checked ~ .slides-wrapper {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* ================= FLOATING HEARTS POP-UP ================= */
+.hearts-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+#reveal:checked ~ .hearts-container {
+  opacity: 1;
+}
+
+.heart {
+  position: absolute;
+  bottom: -50px;
+  font-size: 1.8rem;
+  opacity: 0;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.6) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.9;
+  }
+  85% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-110vh) scale(1.3) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+/* ================= MAIN SURPRISE PAGE ================= */
+.main-content {
+  display: none;
+  width: 100%;
+  max-width: 720px;
+  padding: 40px 20px 60px;
+  z-index: 5;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  animation: fadeInMain 1s ease forwards;
+}
+
+#reveal:checked ~ .main-content {
+  display: flex;
+}
+
+@keyframes fadeInMain {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.header {
+  text-align: center;
+}
+
+.header h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  color: #a4133c;
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8);
+  margin-bottom: 6px;
+}
+
+.header p {
+  font-size: 0.98rem;
+  color: #590d22;
+}
+
+/* ================= MUSIC PLAYER ================= */
+.music-box {
+  background: rgba(255, 255, 255, 0.88);
+  padding: 15px 25px;
+  border-radius: 50px;
+  box-shadow: 0 10px 30px rgba(164, 19, 60, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  border: 1.5px solid #fff;
+  width: 100%;
+  max-width: 380px;
+}
+
+.music-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #c9184a;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+audio {
+  height: 36px;
+  width: 100%;
+  outline: none;
+}
+
+/* ================= 3D FLIP CARD (IMAGE EDITION) ================= */
+.flip-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flip-card {
+  width: 100%;
+  max-width: 360px;
+  height: 450px;
+  perspective: 1200px;
+  cursor: pointer;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.85s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+}
+
+#flip-toggle:checked + .flip-card .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 26px;
+  box-shadow: 0 18px 40px rgba(164, 19, 60, 0.22);
+  border: 4px solid #fff;
+  overflow: hidden;
+}
+
+/* Harap ng Card (Picture) */
+.flip-card-front {
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.front-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.flip-badge {
+  position: absolute;
+  bottom: 18px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  padding: 8px 22px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  animation: pulseBadge 2s infinite;
+}
+
+@keyframes pulseBadge {
+  0%, 100% { transform: scale(1); opacity: 0.92; }
+  50% { transform: scale(1.06); opacity: 1; }
+}
+
+/* Likod ng Card (Message) */
+.flip-card-back {
+  background: #fff9fa;
+  color: #4a1525;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px 26px;
+  text-align: center;
+}
+
+.flip-card-back h3 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  color: #c9184a;
+}
+
+.flip-card-back p {
+  font-size: 0.94rem;
+  line-height: 1.7;
+  color: #590d22;
+  overflow-y: auto;
+  margin: 12px 0;
+}
+
+.flip-card-back .signature {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+  color: #ff4d6d;
+  align-self: flex-end;
+}
+
+/* ================= VIDEO SECTION ================= */
+.video-section {
+  width: 100%;
+  max-width: 560px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 26px;
+  box-shadow: 0 15px 35px rgba(164, 19, 60, 0.18);
+  border: 2px solid #fff;
+  text-align: center;
+}
+
+.video-section h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.1rem;
+  color: #c9184a;
+  margin-bottom: 14px;
+}
+
+.video-wrapper {
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+video {
+  width: 100%;
+  display: block;
+  max-height: 360px;
+  object-fit: cover;
+}
+
+@media (max-width: 480px) {
+  .header h1 { font-size: 2.4rem; }
+  .flip-card { height: 420px; }
+}
